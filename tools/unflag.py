@@ -21,7 +21,7 @@ from vrb import Archive  # noqa: E402
 # start of the world info record in the session components main chunk; fields follow in order:
 # SaveName (string), WorldType (string), PersistentID (Guid), UsedDebugMenu (bool)
 WORLD_INFO_MARKER = b"\x00\x3f\x02\x00\x00\x10\x02\x00\x00\x00"
-BACKUP_ROOT = Path(os.environ.get("LOCALAPPDATA", Path.home())) / "Drydock" / "backups"
+BACKUP_ROOT = Path(os.environ.get("LOCALAPPDATA", Path.home())) / "se2-vrb-tools" / "backups"
 
 
 def find_flag(body: bytes):

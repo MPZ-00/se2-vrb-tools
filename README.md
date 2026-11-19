@@ -1,4 +1,4 @@
-# Drydock
+# se2-vrb-tools
 Offline tools for Space Engineers 2 save files. Read, inspect and repair saves without the game running.
 
 Right now it can:
@@ -21,7 +21,7 @@ Remove the debug menu mark:
 .venv\Scripts\python tools\unflag.py "%AppData%\SpaceEngineers2\AppData\SaveGames\<save>" --dry-run
 .venv\Scripts\python tools\unflag.py "%AppData%\SpaceEngineers2\AppData\SaveGames\<save>"
 ```
-It backs up the touched files to `%LocalAppData%\Drydock\backups` before writing. Don't open the debug menu (Ctrl+F12) in that save again, or the mark comes back.
+It backs up the touched files to `%LocalAppData%\se2-vrb-tools\backups` before writing. Don't open the debug menu (Ctrl+F12) in that save again, or the mark comes back.
 
 Inspect archives:
 ```
