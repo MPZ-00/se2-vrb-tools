@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+# decompiled game code is Keen's copyright, never commit it
+decomp/
+*.bin
