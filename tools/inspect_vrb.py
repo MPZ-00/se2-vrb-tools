@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from vrb import COMPRESSION, Archive  # noqa: E402
+from vrb import COMPRESSION, Archive, expand_path  # noqa: E402
 
 
 def names(type_table: bytes) -> list[str]:
@@ -20,9 +20,9 @@ def names(type_table: bytes) -> list[str]:
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("files", nargs="+", type=Path)
+    ap.add_argument("files", nargs="+", type=expand_path)
     ap.add_argument("--names", action="store_true", help="list type and field names")
-    ap.add_argument("--extract", type=Path, help="write decompressed sections to this folder")
+    ap.add_argument("--extract", type=expand_path, help="write decompressed sections to this folder")
     args = ap.parse_args()
 
     for path in args.files:

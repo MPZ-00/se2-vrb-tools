@@ -16,7 +16,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from vrb import Archive  # noqa: E402
+from vrb import Archive, expand_path  # noqa: E402
 
 # start of the world info record in the session components main chunk; fields follow in order:
 # SaveName (string), WorldType (string), PersistentID (Guid), UsedDebugMenu (bool)
@@ -47,7 +47,7 @@ def game_running() -> bool:
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("save", type=Path)
+    ap.add_argument("save", type=expand_path)
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 

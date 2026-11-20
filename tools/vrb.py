@@ -2,8 +2,10 @@
 
 Layout mirrors Keen.VRage.Library.Serialization.Binary.Archive.ArchiveHeader. See docs/vrb-format.md.
 """
+import os
 import struct
 from dataclasses import dataclass
+from pathlib import Path
 
 import brotli
 import xxhash
@@ -13,6 +15,11 @@ SEED = struct.unpack("<I", MAGIC)[0]
 HEADER_SIZE = 192
 ENTRY_OFFSETS = {"bundle": 16, "type": 52, "chunktable": 88, "main": 132}
 COMPRESSION = {0: "none", 1: "zlib", 2: "brotli"}
+
+
+def expand_path(arg: str) -> Path:
+    """argparse type: expand %VAR%/$VAR and ~, since only cmd does that itself."""
+    return Path(os.path.expanduser(os.path.expandvars(arg)))
 
 
 def xxh64(data: bytes) -> int:
